@@ -1,0 +1,6 @@
+# proboundsviz.create_probounds_table { #proboundsviz.proboundsviz.create_probounds_table }
+
+```python
+proboundsviz.create_probounds_table(raw_data, datatype)
+```
+
