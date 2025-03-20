@@ -6,6 +6,20 @@ metadata-files:
   - _sidebar.yml
 
 
+website:
+  title: "quartodoc"
+  page-navigation: true
+  navbar:
+    left:
+      - file: get-started/overview.qmd
+        text: Get Started
+      - file: example.qmd
+        text: Example
+      - file: tutorials/
+        text: Tutorials
+      - href: api/
+        text: Reference
+
 quartodoc:
   # the name used to import the package you want to create reference docs for
   package: proboundsviz

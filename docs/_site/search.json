@@ -1,80 +1,10 @@
 [
   {
-    "objectID": "reference/preview.html",
-    "href": "reference/preview.html",
-    "title": "preview",
+    "objectID": "reference/proboundsviz.html",
+    "href": "reference/proboundsviz.html",
+    "title": "proboundsviz",
     "section": "",
-    "text": "preview(ast, max_depth=999, compact=False, as_string=False)\nPrint a friendly representation of a griffe object (e.g. function, docstring)\n\n\n&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n...\n&gt;&gt;&gt; preview(obj)\n...",
-    "crumbs": [
-      "Some functions",
-      "preview"
-    ]
-  },
-  {
-    "objectID": "reference/preview.html#examples",
-    "href": "reference/preview.html#examples",
-    "title": "preview",
-    "section": "",
-    "text": "&gt;&gt;&gt; from quartodoc import get_object\n&gt;&gt;&gt; obj = get_object(\"quartodoc\", \"get_object\")\n&gt;&gt;&gt; preview(obj.docstring.parsed)\n...\n&gt;&gt;&gt; preview(obj)\n...",
-    "crumbs": [
-      "Some functions",
-      "preview"
-    ]
-  },
-  {
-    "objectID": "reference/get_object.html",
-    "href": "reference/get_object.html",
-    "title": "get_object",
-    "section": "",
-    "text": "get_object(\n    path,\n    object_name=None,\n    parser='numpy',\n    load_aliases=True,\n    dynamic=False,\n    loader=None,\n)\nFetch a griffe object.\n\n\n\n\n\n\n\n\n\n\n\nName\nType\nDescription\nDefault\n\n\n\n\npath\nstr\nAn import path to the object. This should have the form path.to.module:object. For example, quartodoc:get_object or quartodoc:MdRenderer.render.\nrequired\n\n\nobject_name\n'str | None'\n(Deprecated). A function name.\nNone\n\n\nparser\nstr\nA docstring parser to use.\n'numpy'\n\n\nload_aliases\n\nFor aliases that were imported from other modules, should we load that module?\nTrue\n\n\ndynamic\n\nWhether to dynamically import object. Useful if docstring is not hard-coded, but was set on object by running python code.\nFalse\n\n\n\n\n\n\npreview: print a user-friendly preview of a griffe object.\n\n\n\n&gt;&gt;&gt; get_function(\"quartodoc\", \"get_function\")\n&lt;Function('get_function', ...\n\n\n\n\n\n\nName\nType\nDescription\n\n\n\n\nx\ndc.Object\nabc",
-    "crumbs": [
-      "Some functions",
-      "get_object"
-    ]
-  },
-  {
-    "objectID": "reference/get_object.html#parameters",
-    "href": "reference/get_object.html#parameters",
-    "title": "get_object",
-    "section": "",
-    "text": "Name\nType\nDescription\nDefault\n\n\n\n\npath\nstr\nAn import path to the object. This should have the form path.to.module:object. For example, quartodoc:get_object or quartodoc:MdRenderer.render.\nrequired\n\n\nobject_name\n'str | None'\n(Deprecated). A function name.\nNone\n\n\nparser\nstr\nA docstring parser to use.\n'numpy'\n\n\nload_aliases\n\nFor aliases that were imported from other modules, should we load that module?\nTrue\n\n\ndynamic\n\nWhether to dynamically import object. Useful if docstring is not hard-coded, but was set on object by running python code.\nFalse",
-    "crumbs": [
-      "Some functions",
-      "get_object"
-    ]
-  },
-  {
-    "objectID": "reference/get_object.html#see-also",
-    "href": "reference/get_object.html#see-also",
-    "title": "get_object",
-    "section": "",
-    "text": "preview: print a user-friendly preview of a griffe object.",
-    "crumbs": [
-      "Some functions",
-      "get_object"
-    ]
-  },
-  {
-    "objectID": "reference/get_object.html#examples",
-    "href": "reference/get_object.html#examples",
-    "title": "get_object",
-    "section": "",
-    "text": "&gt;&gt;&gt; get_function(\"quartodoc\", \"get_function\")\n&lt;Function('get_function', ...",
-    "crumbs": [
-      "Some functions",
-      "get_object"
-    ]
-  },
-  {
-    "objectID": "reference/get_object.html#returns",
-    "href": "reference/get_object.html#returns",
-    "title": "get_object",
-    "section": "",
-    "text": "Name\nType\nDescription\n\n\n\n\nx\ndc.Object\nabc",
-    "crumbs": [
-      "Some functions",
-      "get_object"
-    ]
+    "text": "proboundsviz\nproboundsviz"
   },
   {
     "objectID": "reference/index.html",
@@ -97,15 +27,18 @@
     ]
   },
   {
-    "objectID": "reference/proboundsviz.html",
-    "href": "reference/proboundsviz.html",
-    "title": "proboundsviz",
+    "objectID": "example.html",
+    "href": "example.html",
+    "title": "Example",
     "section": "",
-    "text": "proboundsviz\nproboundsviz",
-    "crumbs": [
-      "Some functions",
-      "proboundsviz"
-    ]
+    "text": "import proboundsviz.proboundsviz as pbv\n\nimport probounds.probounds as pb\nimport pandas as pd\nimport numpy as np\n\ndf_observed = pd.DataFrame({\n    'trt': np.concatenate([np.repeat(1, 1400), np.repeat(0, 600)] * 2)  ,\n    'outcome': [1] * 378 + [0] * 1022 + [1] * 420 + [0] * 180 +\n            [1] * 980 + [0] * 420 + [1] * 420 + [0] * 180,\n    'sex': ['Female'] * 2000 + ['Male']* 2000\n})\n\ndf_experimental = pd.DataFrame({\n    'trt': np.concatenate([np.repeat(1, 1000), np.repeat(0, 1000)] * 2)  ,\n    'outcome': [1] * 489  + [0] * 511 + [1] * 210 + [0] * 790 +\n            [1] * 490 + [0] * 510 + [1] * 210 + [0] * 790,\n    'sex': ['Female'] * 2000 + ['Male']* 2000\n})\n\npbv.create_probounds_table(df_observed, 'observational')\nfrom reactable import Reactable, embed_css\n\nembed_css()    \n\n\npbv.create_probounds_table(df_experimental, 'experimental')"
+  },
+  {
+    "objectID": "example.html#advertissement",
+    "href": "example.html#advertissement",
+    "title": "Example",
+    "section": "Advertissement",
+    "text": "Advertissement\n\ndf_ad_experimental = pd.DataFrame({\n    'trt': np.concatenate([np.repeat(1, 100), np.repeat(0, 100)])  ,\n    'outcome': [1] * 20  + [0] * 80 + [1] * 45 + [0] * 55 \n})\n\npbv.create_probounds_table(df_ad_experimental, 'experimental')\n\n\n    \n    \n    \n    \n    \n\n\n\n\n\n\nprobounds_crosstab = pb.create_probounds_crosstab(df_experimental, datatype='experimental')\nprobounds_crosstab.columns = probounds_crosstab.columns.astype(str)\n\nprobounds_crosstab\n\n\n\n\n\n\n\noutcome\n0\n1\n\n\ntrt\n\n\n\n\n\n\n0\n0.79000\n0.21000\n\n\n1\n0.51050\n0.48950\n\n\nAll\n0.65025\n0.34975"
   },
   {
     "objectID": "reference/proboundsviz.create_probounds_table.html",
@@ -117,19 +50,5 @@
       "Some functions",
       "proboundsviz.create_probounds_table"
     ]
-  },
-  {
-    "objectID": "example.html",
-    "href": "example.html",
-    "title": "Example usage",
-    "section": "",
-    "text": "To use proboundsviz in a project:\n\nimport proboundsviz.proboundsviz as pbv\n\n# print(proboundsviz.__version__)\n\n\nimport probounds.probounds as pb\nimport pandas as pd\nimport numpy as np\n\ndf_observed = pd.DataFrame({\n    'trt': np.concatenate([np.repeat(1, 1400), np.repeat(0, 600)] * 2)  ,\n    'outcome': [1] * 378 + [0] * 1022 + [1] * 420 + [0] * 180 +\n            [1] * 980 + [0] * 420 + [1] * 420 + [0] * 180,\n    'sex': ['Female'] * 2000 + ['Male']* 2000\n})\n\ndf_experimental = pd.DataFrame({\n    'trt': np.concatenate([np.repeat(1, 1000), np.repeat(0, 1000)] * 2)  ,\n    'outcome': [1] * 489  + [0] * 511 + [1] * 210 + [0] * 790 +\n            [1] * 490 + [0] * 510 + [1] * 210 + [0] * 790,\n    'sex': ['Female'] * 2000 + ['Male']* 2000\n})\n\n\n# pbv.render_probounds_crosstab(probounds_crosstab_observed, 'observational')\n\npbv.create_probounds_table(df_observed, 'observational')\n\n\n    \n    \n    \n    \n    \n\n\n\n\n\n\npbv.create_probounds_table(df_experimental, 'experimental')"
-  },
-  {
-    "objectID": "changelog.html",
-    "href": "changelog.html",
-    "title": "",
-    "section": "",
-    "text": "jchvhmttv ../CHANGELOG.md"
   }
 ]

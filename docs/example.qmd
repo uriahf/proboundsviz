@@ -1,0 +1,65 @@
+---
+title: "Example"
+format: html
+---
+
+```{python}
+
+
+import proboundsviz.proboundsviz as pbv
+
+import probounds.probounds as pb
+import pandas as pd
+import numpy as np
+
+df_observed = pd.DataFrame({
+    'trt': np.concatenate([np.repeat(1, 1400), np.repeat(0, 600)] * 2)  ,
+    'outcome': [1] * 378 + [0] * 1022 + [1] * 420 + [0] * 180 +
+            [1] * 980 + [0] * 420 + [1] * 420 + [0] * 180,
+    'sex': ['Female'] * 2000 + ['Male']* 2000
+})
+
+df_experimental = pd.DataFrame({
+    'trt': np.concatenate([np.repeat(1, 1000), np.repeat(0, 1000)] * 2)  ,
+    'outcome': [1] * 489  + [0] * 511 + [1] * 210 + [0] * 790 +
+            [1] * 490 + [0] * 510 + [1] * 210 + [0] * 790,
+    'sex': ['Female'] * 2000 + ['Male']* 2000
+})
+
+pbv.create_probounds_table(df_observed, 'observational')
+from reactable import Reactable, embed_css
+
+embed_css()    
+
+
+pbv.create_probounds_table(df_experimental, 'experimental')
+
+
+```
+
+
+## Advertissement
+
+``` {python}
+
+df_ad_experimental = pd.DataFrame({
+    'trt': np.concatenate([np.repeat(1, 100), np.repeat(0, 100)])  ,
+    'outcome': [1] * 20  + [0] * 80 + [1] * 45 + [0] * 55 
+})
+
+pbv.create_probounds_table(df_ad_experimental, 'experimental')
+
+
+```
+
+
+```{python}
+
+probounds_crosstab = pb.create_probounds_crosstab(df_experimental, datatype='experimental')
+probounds_crosstab.columns = probounds_crosstab.columns.astype(str)
+
+probounds_crosstab
+
+
+
+```
